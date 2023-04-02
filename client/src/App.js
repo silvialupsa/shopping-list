@@ -30,43 +30,6 @@ function App() {
       .catch(error => console.log(error));
   };
 
-  const handleShowProducts = () => {
-    setShowProducts(!showProducts);
-    setButtonName(showProducts ? "Show products" : "Hide products")
-  }
-
-  const handleSelectChange = (event) => {
-    setUnit(event.target.value);
-  };
-
-  const handleTask = (event) => {
-    event.preventDefault();
-    setTitle(event.target.value);
-  }
-
-  const handleComment = (event) => {
-    event.preventDefault();
-    setComment(event.target.value);
-  }
-
-  const handleDecrement = (event) => {
-    event.preventDefault();
-    if (quantity === 1) return;
-    setQuantity(quantity - 1);
-    console.log(quantity)
-  }
-
-  const handleIncrement = (event) => {
-    event.preventDefault();
-    setQuantity(quantity + 1);
-    console.log(quantity)
-  }
-
-  const handleTypeInput = (event) => {
-    if(typeof(event.target.value ) !== Number) event.target.value=1;
-    setQuantity(parseInt(event.target.value));
-  }
-
   useEffect(() => {
     fetch("http://localhost:3000/api/shopping")
       .then((response) => response.json())
@@ -75,9 +38,10 @@ function App() {
   }, []);
 
   const handleSubmit = (event) => {
-    
     event.preventDefault();
-    const data = { title, comment, status, quantity, unit};
+    if (title === "") return
+    if (unit === '') return
+    const data = { title, comment, status, quantity, unit };
     fetch('http://localhost:3000/api/shopping', {
       method: 'POST',
       headers: {
@@ -97,7 +61,7 @@ function App() {
         console.log(error);
       });
   }
-  
+
   const deleteObjectElement = (deleteElement) => {
     console.log(allProducts)
     if (!deleteElement) {
@@ -143,6 +107,45 @@ function App() {
       });
   }
 
+  const handleShowProducts = () => {
+    setShowProducts(!showProducts);
+    setButtonName(showProducts ? "Show products" : "Hide products")
+  }
+
+  const handleSelectChange = (event) => {
+    setUnit(event.target.value);
+  };
+
+  const handleTask = (event) => {
+    event.preventDefault();
+    setTitle(event.target.value);
+  }
+
+  const handleComment = (event) => {
+    event.preventDefault();
+    setComment(event.target.value);
+  }
+
+  const handleDecrement = (event) => {
+    event.preventDefault();
+    if (quantity === 1) return;
+    setQuantity(quantity - 1);
+  }
+
+  const handleIncrement = (event) => {
+    event.preventDefault();
+    setQuantity(quantity + 1);
+  }
+
+  const handleTypeInput = (event) => {
+    console.log(event.target.value)
+    if (event.target.value === '') { 
+      setQuantity(1);
+    } else {
+      setQuantity(parseInt(event.target.value));
+    }
+  }
+  
   return (
     <div className="App">
       <h2 id="intro">Shopping list</h2>
@@ -162,13 +165,14 @@ function App() {
           placeholder="Add comment"
           onChangeCallback={handleComment} />
         <Quantity
+          className={title.split("").length === 0 ? "disabled" : ""}
           onChangeCallback={handleTypeInput}
           decrement={handleDecrement}
           value={quantity}
           increment={handleIncrement}
           handleSelectChange={handleSelectChange}
         /> 
-        <button id="addButton" type="submit">Add</button>
+        <button id="addButton" type="submit" className={title.split("").length === 0 ? "disabled" : ""}>Add</button>
       </form>
       <button id="showHideButton" onClick={handleShowProducts}>{buttonName}</button>
       {showProducts ?

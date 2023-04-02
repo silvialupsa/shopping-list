@@ -16,9 +16,9 @@ const Product = (props) => {
                 <span className="glyphicon glyphicon-edit"></span>
             </button>
             <button onClick={setDeleteCallback}><i className="fa fa-trash-o"></i></button>
-            <p style={product.status ? { textDecorationLine: 'line-through' } : {}}>
-                {product.comment}
-            </p>
+            {product.comment.split("").length > 0 ? <p id="comment" style={product.status ? { textDecorationLine: 'line-through' } : {}}>
+                <img src="/comment.png" ></img>{product.comment}
+            </p> : null}
         </div>
     );
 }

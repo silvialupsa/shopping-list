@@ -3,7 +3,7 @@ body {
   text-align: center;
   font-weight: 400;
   font-size: 15px;
-  background-color: #906ECD;
+  background-color: #906ecd;
 }
 
 .App {
@@ -37,33 +37,32 @@ body {
 }
 
 #intro {
-  font-family: 'Ruda', Sans-Serif;
+  font-family: "Ruda", Sans-Serif;
   font-size: 58px;
   margin: 20px 0;
   font-weight: 700;
   text-align: center;
-  color: #7043C1;
-  text-shadow: 3px 0px #000000, 1px 1px #906ECD;
+  color: #7043c1;
+  text-shadow: 3px 0px #000000, 1px 1px #906ecd;
 }
 
 h3 {
-  font-family: 'Ruda', Sans-Serif;
+  font-family: "Ruda", Sans-Serif;
   font-size: 20px;
   margin: 20px 0;
   font-weight: 700;
   text-align: center;
-  color: #906ECD;
+  color: #906ecd;
 }
 
 #allTasks {
-  font-family: 'Roboto Slab', Serif;
+  font-family: "Roboto Slab", Serif;
   margin: 0 auto;
   max-width: 550px;
   transition: all 250ms ease-in-out;
 }
 
-#singleTask {
-  max-width: 550px;
+#singleTask {  max-width: 550px;
   background-color: rgb(178, 174, 174);
   margin: 20px;
   text-align: center;
@@ -73,16 +72,17 @@ h3 {
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
 }
 
-#circle, #doneOrNot,
+#circle,
+#doneOrNot,
 #delete,
 #edit {
   display: flex;
 }
 
-#edit{
+#edit {
   border-radius: 50px;
 }
-#doneOrNot{
+#doneOrNot {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,14 +110,16 @@ h3 {
 }
 
 input[type="text"] {
-  font-family: 'Ruda', Sans-Serif;
+  max-width: 200px;
+  max-height: 55px;
+  font-family: "Ruda", Sans-Serif;
   min-width: 12px;
-  margin: 2px 2px 2px 2px;
+  margin: 40px 2px 2px 2px;
   height: 30px;
   padding: 6px;
-  font-size: 15px;
+  font-size: 20px;
   border-width: 2px;
-  border-color: #28E5A5;
+  border-color: #28e5a5;
   color: #000000;
   border-style: solid;
   border-radius: 50px;
@@ -125,13 +127,14 @@ input[type="text"] {
 }
 
 input[type="text"]:hover {
-  outline:  #906ECD;
+  outline: #906ecd;
 }
 
 #addButton,
 #showHideButton {
-  margin-top: 10px;
-  background-color: #7043C1;
+  font-family: "Ruda", Sans-Serif;
+  margin-top: 30px;
+  background-color: #7043c1;
   border-radius: 50px;
   border: 0;
   box-shadow: #000000 0 -1px 5px 0 inset, rgba(0, 44, 97, 0.1) 0 3px 6px 0;
@@ -155,9 +158,9 @@ input[type="text"]:hover {
 #addButton:hover,
 #showHideButton:hover {
   margin: 5px 5px 5px 5px;
-  font-family: 'Ruda', Sans-Serif;
-  background-color: #7043C1;
-  transform: translateY(-2px);
+  font-family: "Ruda", Sans-Serif;
+  background-color: #7043c1;
+  transform: translateY(-1px);
 }
 
 .fa {
@@ -167,7 +170,7 @@ input[type="text"]:hover {
 }
 
 .glyphicon {
-  color: #7043C1;
+  color: #7043c1;
   font-size: 21px;
   max-width: 25px;
 }
@@ -179,15 +182,19 @@ input[type="text"]:hover {
   margin: 10px;
 }
 
+.disabled {
+  visibility: hidden;
+}
+
 #quantityValue {
-  border-color: #28E5A5;
+  border-color: #28e5a5;
   text-align: center;
   align-items: center;
   flex-direction: row;
   justify-content: center;
-  font-size: 50px;
+  font-size: 20px;
   margin: 3px 3px 3px 3px;
-  max-width: 150px;
+  max-width: 70px;
   max-height: 55px;
   border-radius: 50px;
 }
@@ -200,19 +207,42 @@ input[type="text"]:hover {
 #unit-select {
   border-radius: 50px;
   font-size: 20px;
-  font-family: 'Ruda', Sans-Serif;
-  border-color: #28E5A5;
+  font-family: "Ruda", Sans-Serif;
+  border-color: #28e5a5;
 }
 
-#increment, #decrement {
-  background-color: #28E5A5;
+#increment,
+#decrement {
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  background-color: #28e5a5;
   border-radius: 50px;
   height: 40px;
   width: 40px;
-  color:#fff
+  color: #000000;
+  font-weight: 900;
+  font-size: 20px;
 }
 
-#increment:hover, #decrement:hover {
+.error {
+  border: 1px solid red;
+}
+
+#comment{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    align-items: center;
+}
+
+img{
+  max-width: 7%;
+  max-height: 100%;
+}
+
+#increment:hover,
+#decrement:hover {
   transform: translateY(-2px);
 }
 
@@ -224,7 +254,7 @@ input[type="text"]:hover {
   }
 
   #quantityValue {
-    font-size: 50px;
+    font-size: 20px;
   }
 }
 
@@ -267,15 +297,35 @@ input[type="text"]:hover {
   #quantityValue {
     display: flex;
     flex-direction: column;
-    font-size: 64px;
     margin: 3px 3px 3px 3px;
   }
 }
 
-@keyframes expand { 
-	0% { -webkit-transform: scale3d(1,0,1); transform: scale3d(1,0,1);  opacity:0; }
-	25% { -webkit-transform: scale3d(1,1.2,1); transform: scale3d(1,1.2,1); }
-	50% { -webkit-transform: scale3d(1,0.85,1); transform: scale3d(1,0.85,1); }
-	75% { -webkit-transform: scale3d(1,1.05,1); transform: scale3d(1,1.05,1); }
-	100% { -webkit-transform: scale3d(1,1,1); transform: scale3d(1,1,1);  opacity:1; }
+@keyframes expand {
+  0% {
+    -webkit-transform: scale3d(1, 0, 1);
+    transform: scale3d(1, 0, 1);
+    opacity: 0;
+  }
+  25% {
+    -webkit-transform: scale3d(1, 1.2, 1);
+    transform: scale3d(1, 1.2, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1, 0.85, 1);
+    transform: scale3d(1, 0.85, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1, 1.05, 1);
+    transform: scale3d(1, 1.05, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+
+#comment {
+  margin-top: 30px;
 }
