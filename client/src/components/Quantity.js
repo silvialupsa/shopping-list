@@ -4,12 +4,13 @@ const Quantity = (props) => {
     const value = props.value
     const incrementCallBack = props.increment
     const handleSelectChange = props.handleSelectChange
+    const onChangeCallback = props.onChangeCallback
     return (
         <div id="quantityContainer">
-            <button onClick={decrementCallBack}>-</button>
-            <p id="quantityValue">{value}</p>
-            <button onClick={incrementCallBack}>+</button>
-            <select id="unit-select" onChange={handleSelectChange} >
+            <button className="itemFromQuantity" id="decrement" onClick={decrementCallBack}>-</button>
+            <input className="itemFromQuantity" id="quantityValue" value={value} onChange={onChangeCallback} />
+            <button className="itemFromQuantity" id="increment" onClick={incrementCallBack}>+</button>
+            <select className="itemFromQuantity" id="unit-select" onChange={handleSelectChange} >
                 {units.map((unit) => (
                     <option key={unit} value={unit}>{unit}</option>
                 ))}

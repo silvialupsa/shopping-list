@@ -6,11 +6,12 @@ const Product = (props) => {
     const setDeleteCallback = props.setDeleteCallback;
     return (
         <div id="singleTask" key={product._id}>
-            <button className={product.status ? "done" : "notDone"}
-                id="circle" onClick={setSelectedCallback}
-            >
-            </button>
-            <h3 style={product.status ? { textDecorationLine: 'line-through' } : {}}>{product.title} - {product.quantity} { product.unit}</h3>
+            <div id="doneOrNot">
+                <button className={product.status ? "done" : "notDone"}
+                    id="circle" onClick={setSelectedCallback}>
+                </button>
+            </div>
+            <h3 style={product.status ? { textDecorationLine: 'line-through' } : {}}>{product.title} - {product.quantity} {product.unit}</h3>
             <button id="editButton" onClick={setEditCallback}>
                 <span className="glyphicon glyphicon-edit"></span>
             </button>
@@ -20,6 +21,6 @@ const Product = (props) => {
             </p>
         </div>
     );
-}     
+}
 
 export default Product;

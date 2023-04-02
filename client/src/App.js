@@ -62,6 +62,11 @@ function App() {
     console.log(quantity)
   }
 
+  const handleTypeInput = (event) => {
+    if(typeof(event.target.value ) !== Number) event.target.value=1;
+    setQuantity(parseInt(event.target.value));
+  }
+
   useEffect(() => {
     fetch("http://localhost:3000/api/shopping")
       .then((response) => response.json())
@@ -148,7 +153,7 @@ function App() {
           value={title}
           type="text"
           id="addTitle"
-          placeholder="Add title"
+          placeholder="Add product"
           onChangeCallback={handleTask} />
         <Input
           value={comment}
@@ -156,7 +161,9 @@ function App() {
           id="addComment"
           placeholder="Add comment"
           onChangeCallback={handleComment} />
-        <Quantity decrement={handleDecrement}
+        <Quantity
+          onChangeCallback={handleTypeInput}
+          decrement={handleDecrement}
           value={quantity}
           increment={handleIncrement}
           handleSelectChange={handleSelectChange}
@@ -170,7 +177,7 @@ function App() {
           allProducts.map((product) => {
             return (
               <Product product={product}
-                setSelectedCallback={() => { handleStatusChange(product) }}
+              setSelectedCallback={() => { handleStatusChange(product) }}
               setDeleteCallback={() => {setDeletedProduct(product); deleteObjectElement(product)}} 
               setEditCallback={() => { setEditProduct(product); editObjectElement(product); deleteObjectElement(product) }} />
             )
