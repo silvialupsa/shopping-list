@@ -62,7 +62,8 @@ h3 {
   transition: all 250ms ease-in-out;
 }
 
-#singleTask {  max-width: 550px;
+#singleTask {  
+  max-width: 550px;
   background-color: rgb(178, 174, 174);
   margin: 20px;
   text-align: center;
@@ -130,6 +131,10 @@ input[type="text"]:hover {
   outline: #906ecd;
 }
 
+#addButton:hover{
+  transform: rotate(45deg)
+}
+
 #addButton,
 #showHideButton {
   font-family: "Ruda", Sans-Serif;
@@ -137,7 +142,7 @@ input[type="text"]:hover {
   background-color: #7043c1;
   border-radius: 50px;
   border: 0;
-  box-shadow: #000000 0 -1px 5px 0 inset, rgba(0, 44, 97, 0.1) 0 3px 6px 0;
+  box-shadow: #000000 0 -3px 5px 0 inset, rgba(0, 44, 97, 0.1) 0 3px 6px 0;
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
@@ -152,15 +157,13 @@ input[type="text"]:hover {
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 #addButton:hover,
 #showHideButton:hover {
-  margin: 5px 5px 5px 5px;
+  transform: translateY(-2px);
   font-family: "Ruda", Sans-Serif;
-  background-color: #7043c1;
-  transform: translateY(-1px);
+  background-color: #28e5a5;
 }
 
 .fa {
@@ -213,6 +216,7 @@ input[type="text"]:hover {
 
 #increment,
 #decrement {
+  box-shadow: #000000 0 -2px 5px 0 inset, rgba(0, 44, 97, 0.1) 0 3px 6px 0;
   text-align: center;
   vertical-align: middle;
   position: relative;
@@ -244,6 +248,7 @@ img{
 #increment:hover,
 #decrement:hover {
   transform: translateY(-2px);
+  background-color: #906ecd;
 }
 
 @media (max-width: 634px) {

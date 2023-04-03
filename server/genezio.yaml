@@ -1,0 +1,17 @@
+name: shopping-list
+region: us-east-1
+cloudProvider: aws
+sdk:
+  language: js
+  options:
+    runtime: node
+  path: ..client/src/sdk/
+frontend:
+  path: "../client/build"
+classes:
+  - path: server.js
+    type: jsonrpc
+    methods: []
+  - path: ./Shopping.js
+    type: jsonrpc
+    methods: []
