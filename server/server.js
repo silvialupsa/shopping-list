@@ -7,8 +7,6 @@ app.use(cors());
 
 let Element = require('./model/Shopping.js');
 
-mongoose.connect("mongodb+srv://lupsasilvia:W6ko7AW0cXonTuwz@cluster0.iqpguv4.mongodb.net/ShoppingListApp");
-
 export class Shopping {
     ShoppingListPost = (title, comment, status, quantity, unit) => {
         const createdAt = Date.now();
@@ -35,8 +33,11 @@ export class Shopping {
             .then((shopping) => { return shopping })
             .catch((err) => { return ({ success: false }) });
     }
-}
 
-mongoose.connection.on("connected", () => {
-    console.log("Connected to MongoDB!");
-})
+    constructor() {
+        mongoose.connect("mongodb+srv://lupsasilvia:W6ko7AW0cXonTuwz@cluster0.iqpguv4.mongodb.net/ShoppingListApp");
+        mongoose.connection.on("connected", () => {
+                console.log("Connected to MongoDB!");
+        })
+    }
+}
