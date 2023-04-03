@@ -17,7 +17,7 @@ const Product = (props) => {
             </button>
             <button onClick={setDeleteCallback}><i className="fa fa-trash-o"></i></button>
             {product.comment.split("").length > 0 ? <p id="comment" style={product.status ? { textDecorationLine: 'line-through' } : {}}>
-                <img src="/comment.png" ></img>{product.comment}
+                <img src="./comment.png" ></img>{product.comment}
             </p> : null}
         </div>
     );
